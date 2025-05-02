@@ -44,7 +44,7 @@ Set-ExecutionPolicy Unrestricted Process
 
 ## Provide `unrestricted` Running Policy (Not Recommended)
 
-Let Windows allow all PowerShell scripts to run after confirmation.
+Let Windows allow all downloaded PowerShell scripts to run after confirmation.
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted CurrentUser
