@@ -34,7 +34,7 @@ Upon successful assembly, the script will open a new window with the simulator t
 
 Windows offers a security feature for PowerShell scripts. To work around this, set the [execution policy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.5) as described below.
 
-## Provide one-time running policy (Recommended)
+## Provide One-Time Running Policy (Recommended)
 
 Let Windows allow PowerShell scripts once, in the current running terminal.
 
@@ -42,7 +42,7 @@ Let Windows allow PowerShell scripts once, in the current running terminal.
 Set-ExecutionPolicy Unrestricted Process
 ```
 
-## Provide `unrestricted` running policy
+## Provide `unrestricted` Running Policy (Not Recommended)
 
 Let Windows allow all PowerShell scripts to run after confirmation.
 
