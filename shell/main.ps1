@@ -35,23 +35,30 @@ function Assemble-File {
 # program start
 
 Write-Host "Welcome!"
-$userInput = Read-Host "Provide the file name ('fileName [bin|asm]', asm assumed if omitted)"
 
-# analyze input, is it bin or asm?
-$input_split = $userInput.split(' ', 2) # split into two parts
-$file_name = $input_split[0].toLower().split('.', 2)[0] # get the file name without extension
-$file_type = if ($input_split.Count -eq 2) { $input_split[1].ToLower() } else { "asm" }
+$userInput = Read-Host "Provide the file name ('fileName [bin|asm]')"
+
+do {
+
+    # analyze input, is it bin or asm?
+    $input_split = $userInput.split(' ', 2) # split into two parts
+    $file_name = $input_split[0].toLower().split('.', 2)[0] # get the file name without extension
+    $file_type = if ($input_split.Count -eq 2) { $input_split[1].ToLower() } else { "asm" }
 
 
-switch ($file_type) {
-    "asm" { 
-        Assemble-File $asm $file_name ".asm"
+    switch ($file_type) {
+        "asm" { 
+            Assemble-File $asm $file_name ".asm"
+        }
+        "bin" {
+            Assemble-File $bin $file_name ".bin"
+        }
+        Default { Write-Host "Unrecognize file type, must be 'bin' or 'asm'" }
     }
-    "bin" {
-        Assemble-File $bin $file_name ".bin"
-    }
-    Default { Write-Host "Unrecognize file type, must be 'bin' or 'asm'" }
-}
+
+    $userInput = Read-Host "Provide the file name ('filName [bin|asm]') or q to quit"
+
+} while ($userInput -ine "q") # while insensitive case not-equal to q
 
 
 
