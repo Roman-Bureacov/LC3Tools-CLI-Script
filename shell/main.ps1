@@ -56,7 +56,7 @@ do {
         Default { Write-Host "Unrecognize file type, must be 'bin' or 'asm'" }
     }
 
-    $userInput = Read-Host "Provide the file name ('filName [bin|asm]') or q to quit"
+    $userInput = Read-Host "Provide the file name ('fileName [bin|asm]') or q to quit"
 
 } while ($userInput -ine "q") # while insensitive case not-equal to q
 
